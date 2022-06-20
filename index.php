@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,17 +55,22 @@
 
 <div class="login-form-container">
     <i class="fas fa-times" id="form-close"></i>
-    <form action="validation.php">
+    
+    <form method='post' action="validation.php">
          <h3>login</h3>
-         <input type="email" class="box" placeholder="Enter your email">
-         <input type="password" class="box" placeholder="Enter your password">
+         <input type="text" name='username' id='username' class="box" placeholder="Username">
+         <input type="password" name='pass' id='pass' class="box" placeholder="Enter your password">
          <input type="submit" value="login now" class="btn">
          <input type="checkbox" id="remember">
          <label for="remember">Remember me</label>
          <p>forget password? <a href="#">click here</a></p>
-         <p>don't have and account? <a href="#">register now</a></p>
+         <p>don't have and account? <a href="signup.php">register now</a></p>
     </form>
+    
 </div>
+
+
+
 
 <!-- home section starts -->
 
@@ -605,4 +613,5 @@
     <!-- custome js file link -->
     <script src="main.js"></script>
 </body>
+<h1 style='color:red;'>welcome <?php echo $_SESSION['username'];?></h1>
 </html>

@@ -6,17 +6,17 @@
  $firstname=$_POST['fname'];
  $lastname=$_POST['lname'];
  $pass=$_POST['pass'];
- $email=$_POST['email'];
+ $username=$_POST['username'];
 
- $s="select * from person where email='$email' ";
+ $s="select * from person where username='$username' ";
 $result=mysqli_query($con,$s);
 $num=mysqli_num_rows($result);
 if($num == 1)
 {
-    echo "You have previously used this account to sign up. Please, Log In Instead.";
+    echo "You have previously used this username to sign up. Please, Log In Instead.";
 }
 else{
-    $reg="Insert into person(fname,lname,email,pass)values('$firstname','$lastname','$email','$pass')";
+    $reg="Insert into person(fname,lname,username,pass)values('$firstname','$lastname','$username','$pass')";
     mysqli_query($con,$reg);
     echo "Registeration Successful";
 }

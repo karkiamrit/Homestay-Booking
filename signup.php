@@ -19,13 +19,13 @@
             <input type="text" placeholder="Firstname" name="fname" id="fname"/>
             <label for="lname" >Lastname</label>
             <input type="text" placeholder="Lastname" name="lname" id="lname"/>
-            <label for="Email" >Email</label>
-            <input type="email" placeholder="Enter your email" name="email" id="email">
+            <label for="username" >Username</label>
+            <input type="text" placeholder="Enter a username" name="username" id="username">
             <label for="pass" >Password</label>
             <input type="password" placeholder="Password" name="pass" id="pass">
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
-
+            
         </form>
         </div>
     </body>
