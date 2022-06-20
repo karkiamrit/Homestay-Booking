@@ -52,7 +52,7 @@
 
 <div class="login-form-container">
     <i class="fas fa-times" id="form-close"></i>
-    <form action="">
+    <form action="validation.php">
          <h3>login</h3>
          <input type="email" class="box" placeholder="Enter your email">
          <input type="password" class="box" placeholder="Enter your password">
@@ -242,7 +242,7 @@
         </div>
         <div class="box">
             <i class="fas fa-bullhorn"></i>
-                <h3>safty guide</h3>
+                <h3>safety guide</h3>
                 <p>When booking you shouln't worry about internal security. Against theft; Fire safety; Proper lighting; Safeguarding assets and External Security,Homestays offer you a legal insurance.</p>
         </div>
         <div class="box">
@@ -344,8 +344,8 @@
     <div class="box">
         <img src="img/bhuwa-nach.jpg" alt="" >
         <div class="content">
-            <h3>Bhuwa Naach(Dance)</h3>
-            <p> In the temple premises, the white costumed men with swords and shields on their hands, start the procession of Bhuwa Naach. </p>
+            <h3>Bhuwa Naach</h3>
+            <p>The white costumed men with swords and shields on their hands, perform Bhuwa Naach. </p>
             <a href="#" class="btn">see more</a>
         </div>
     </div>
@@ -418,7 +418,7 @@
                 <div class="box">
                     <img src="img/madhu-pandey.jpg" alt="">
                     <h3>Madhu Pandey</h3>
-                    <p>Suman is an awesome host! He is very inviting and caring. The balcony in the front was also particularly nice to watch the daily life outside. I absolutely recommend Booking from Nest!</p>
+                    <p>Suman is an awesome host! He is very inviting and caring. The balcony in the front was alsoz nice to watch the daily life outside. I absolutely recommend Booking from Nest!</p>
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -556,11 +556,12 @@
             <a href="#">facebook</a>
             <a href="#">instagram</a>
             <a href="#">twitter</a>
-            <a href="#">likedin</a>
+            <a href="#">linkedin</a>
         </div>
     </div>
     <h1 class="credit"> created by <span>Team Fix It</span> | all rights reserved!! </h1>
 </section>
+
 
 
 
