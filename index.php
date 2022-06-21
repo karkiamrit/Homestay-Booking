@@ -55,8 +55,9 @@ session_start();
 
 <div class="login-form-container">
     <i class="fas fa-times" id="form-close"></i>
-    
-    <form method='post' action="validation.php">
+    <a href='index.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px;  " id='thau' >My Profile</a>
+    <a href='logout.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px; " id='acc' >Log out</a>
+    <form method='post' action="validation.php" id='frm'>
          <h3>login</h3>
          <input type="text" name='username' id='username' class="box" placeholder="Username">
          <input type="password" name='pass' id='pass' class="box" placeholder="Enter your password">
@@ -68,6 +69,7 @@ session_start();
     </form>
     
 </div>
+
 
 
 
@@ -476,20 +478,7 @@ session_start();
 
 <!-- contact section ends -->
 
-<!-- brand section -->
 
-<section class="brand-container">
-    <div class="swiper mySwiper brand-slider">
-        <div class="swiper-wrapper wrapper">
-            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="img/4.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="img/5.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="img/6.jpg" alt=""></div>
-        </div>
-    </div>
-</section>
 
 <!-- book section starts -->
 
@@ -571,47 +560,44 @@ session_start();
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- custome js file link -->
     <script src="main.js"></script>
 </body>
-<h1 style='color:red;'>welcome <?php echo $_SESSION['username'];?></h1>
+<h1 style='color:red;'>welcome <?php 
+   
+   if(isset($_SESSION["username"]))
+   {
+    echo $_SESSION['username'];
+   }
+   else
+   {
+    echo '';
+   }
+    
+ ?></h1>
+
+<script>
+    if("<?php
+    if(isset($_SESSION["username"]))
+    {
+     echo $_SESSION['username'];
+    }
+    else
+    {
+     echo '';
+    }
+    ?>"!='')
+    {
+        document.getElementById('frm').style.display='none';
+        document.getElementById('thau').style.display='block';
+        document.getElementById('acc').style.display='block';
+        
+    }
+</script>
+ 
+   
+
+
+ </script>
 </html>

@@ -560,9 +560,7 @@ header .search-bar-container label:hover{
     width:100%;
 }
 
-.brand-container{
-    text-align:center;
-}
+
 
 .footer{
     background:#333;
@@ -616,6 +614,9 @@ header .search-bar-container label:hover{
   .footer .credit span{
     color:var(--orange);
   }
+
+
+  
 
 
 
