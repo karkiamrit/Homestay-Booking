@@ -40,7 +40,19 @@ session_start();
 
         <div class="icons">
             <i class="fas fa-search" id="search-btn"></i>
-            <i class="fas fa-user" id="login-btn"></i>
+            <input type="button" id="login-btn"/>
+            <label for="login-btn" ><i class="fas fa-user"></i><h1 class="fas fa-dot" style="color:white;font-family:Nunito;"> <?php 
+   
+   if(isset($_SESSION["username"]))
+   {
+    echo $_SESSION['username'];
+   }
+   else
+   {
+    echo 'Log In';
+   }
+    
+ ?></h1></label>
         </div>
 
         <form action="" class="search-bar-container">
@@ -57,6 +69,7 @@ session_start();
     <i class="fas fa-times" id="form-close"></i>
     <a href='index.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px;  " id='thau' >My Profile</a>
     <a href='logout.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px; " id='acc' >Log out</a>
+   
     <form method='post' action="validation.php" id='frm'>
          <h3>login</h3>
          <input type="text" name='username' id='username' class="box" placeholder="Username">
@@ -67,7 +80,7 @@ session_start();
          <p>forget password? <a href="#">click here</a></p>
          <p>don't have and account? <a href="signup.php">register now</a></p>
     </form>
-    
+
 </div>
 
 
@@ -156,7 +169,7 @@ session_start();
             <img src="img/lamjung.jpeg" alt="">
             <div class="content">
                 <h3><i class="fas fa-map-marker-alt"></i> Lamjung </h3>
-                <p>Ghale Gaun is an exotic pristine village endowed with an unparallel scenic grandeur and a home to Ghales the famed Gurungs the legendary mid-hill people of western Nepal. Repository of a unique ethnic culture Ghele Gaun is a true microcosm of stunning natural beauty mixed with an unspoiled ethnic life style.</p>
+                <p>Ghale Gaun is an exotic pristine village endowed with an unparallel scenic grandeur and a home to Ghales the famed Gurungs the legendary mid-hill people of western Nepal. Repository of a unique ethnic culture Ghale Gaun is a true microcosm of stunning natural beauty mixed with an unspoiled ethnic life style.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -459,7 +472,7 @@ session_start();
     </h1>
     <div class="row">
         <div class="img">
-            <img src="img/contact-us.png" alt="">
+            <img src="https://static.vecteezy.com/system/resources/previews/005/747/729/non_2x/24-hours-customer-service-icon-24-7-support-icon-sign-button-customer-service-icon-vector.jpg" alt="">
         </div>
         <form action="">
             <div class="inputBox">
@@ -496,7 +509,7 @@ session_start();
 
     <div class="row">
         <div class="img">
-            <img src="img/book-now.jpg" alt="">
+            <img src="https://media.istockphoto.com/vectors/book-online-now-isolated-seal-book-online-now-orange-label-book-now-vector-id1179594007?b=1&k=20&m=1179594007&s=170667a&w=0&h=5khSZeUZU4cYlD1aqlltHOy3JISHT2pMIPo1P-2-TWQ=" alt="">
         </div>
 
         <form action="">
@@ -540,13 +553,13 @@ session_start();
         </div>
         <div class="box">
             <h3>quick links</h3>
-            <a href="#">home</a>
-            <a href="#">package</a>
-            <a href="#">service</a>
-            <a href="#">gallery</a>
-            <a href="#">review</a>
-            <a href="#">contact</a>
-            <a href="#">book</a>
+            <a href="#home">home</a>
+            <a href="#packages">package</a>
+            <a href="#services">service</a>
+            <a href="#gallery">gallery</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+            <a href="#book">book</a>
         </div>
         <div class="box">
             <h3>follow us</h3>
@@ -564,18 +577,7 @@ session_start();
     <!-- custome js file link -->
     <script src="main.js"></script>
 </body>
-<h1 style='color:red;'>welcome <?php 
-   
-   if(isset($_SESSION["username"]))
-   {
-    echo $_SESSION['username'];
-   }
-   else
-   {
-    echo '';
-   }
-    
- ?></h1>
+
 
 <script>
     if("<?php
@@ -595,9 +597,9 @@ session_start();
         
     }
 </script>
+
+
  
    
 
-
- </script>
 </html>

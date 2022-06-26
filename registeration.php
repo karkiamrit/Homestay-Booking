@@ -18,6 +18,8 @@ if($num == 1)
 else{
     $reg="Insert into person(fname,lname,username,pass)values('$firstname','$lastname','$username','$pass')";
     mysqli_query($con,$reg);
-    echo "Registeration Successful";
+    $_SESSION['new']="Registeration Successful";
+   header('location:index.php');
+    
 }
 ?>
