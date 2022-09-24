@@ -144,7 +144,7 @@ session_start();
                     <i class="far fa-star"></i>
                 </div>
                 <div class="price"> $15.00 <span>$120.00</span></div>
-                <a href="#" class="btn">book now</a>
+                <a href="#book" class="btn">book now</a>
             </div>
         </div>
 
@@ -161,7 +161,7 @@ session_start();
                     <i class="far fa-star"></i>
                 </div>
                 <div class="price"> $30.00 <span>$140.00</span></div>
-                <a href="#" class="btn">book now</a>
+                <a href="#book" class="btn">book now</a>
             </div>
         </div>
 
@@ -178,7 +178,7 @@ session_start();
                     <i class="far fa-star"></i>
                 </div>
                 <div class="price"> $40.00 <span>$160.00</span></div>
-                <a href="#" class="btn">book now</a>
+                <a href="#book" class="btn">book now</a>
             </div>
         </div>
 
@@ -195,7 +195,7 @@ session_start();
                     <i class="far fa-star"></i>
                 </div>
                 <div class="price"> $30.00 <span>$120.00</span></div>
-                <a href="#" class="btn">book now</a>
+                <a href="#book" class="btn">book now</a>
             </div>
         </div>
 
@@ -212,7 +212,7 @@ session_start();
                     <i class="far fa-star"></i>
                 </div>
                 <div class="price"> $90.00 <span>$120.00</span></div>
-                <a href="#" class="btn">book now</a>
+                <a href="#book" class="btn">book now</a>
             </div>
         </div>
 
@@ -229,7 +229,7 @@ session_start();
                     <i class="far fa-star"></i>
                 </div>
                 <div class="price"> $40.00 <span>$120.00</span></div>
-                <a href="#" class="btn">book now</a>
+                <a href="#book" class="btn">book now</a>
             </div>
         </div>
     </div>
@@ -512,22 +512,22 @@ session_start();
             <img src="https://media.istockphoto.com/vectors/book-online-now-isolated-seal-book-online-now-orange-label-book-now-vector-id1179594007?b=1&k=20&m=1179594007&s=170667a&w=0&h=5khSZeUZU4cYlD1aqlltHOy3JISHT2pMIPo1P-2-TWQ=" alt="">
         </div>
 
-        <form action="">
+        <form action="book.php" method='post'>
               <div class="inputBox">
                   <h3>where to</h3>
-                  <input type="text" placeholder="Place name">
+                  <input type="text" placeholder="Place name" id='location' name='location'>
               </div>
               <div class="inputBox">
                 <h3>how many</h3>
-                <input type="number" placeholder="Number of guests">
+                <input type="number" placeholder="Number of guests" id='noofguests' name='noofguests'>
             </div>
             <div class="inputBox">
                 <h3>Arrivals</h3>
-                <input type="date">
+                <input type="date" id='departure' name='departure'>
             </div>
             <div class="inputBox">
                 <h3>Leaving</h3>
-                <input type="date">
+                <input type="date" id='return' name='return'>
             </div>
             <input type="submit" class="btn" value="Book now">
         </form>

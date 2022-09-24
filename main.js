@@ -43,7 +43,7 @@ videoBtn.forEach(btn =>{
     });
 });
 
-var swiper = new swiper(".review-slider", {
+var swiper = new Swiper(".review-slider", {
     spaceBetween: 20,
     loop:true,
     autoplay:{

@@ -5,7 +5,7 @@
  $pass=$_POST['pass'];
  $username=$_POST['username'];
 
- $s="select * from person where username='$username' and pass='$pass'";
+ $s="select * from user where username='$username' and pass='$pass'";
 $result=mysqli_query($con,$s);
 $num=mysqli_num_rows($result);
 if($num == 1)
