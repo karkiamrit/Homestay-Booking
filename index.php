@@ -474,16 +474,16 @@ session_start();
         <div class="img">
             <img src="https://static.vecteezy.com/system/resources/previews/005/747/729/non_2x/24-hours-customer-service-icon-24-7-support-icon-sign-button-customer-service-icon-vector.jpg" alt="">
         </div>
-        <form action="">
+        <form action="usermsg.php" method='post'>
             <div class="inputBox">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Name" id="username" name="username">
+                <input type="email" placeholder="Email" id="usermail" name="usermail">
             </div>
             <div class="inputBox">
-                <input type="number" placeholder="Phone Number">
-                <input type="text" placeholder="Subject">
+                <input type="number" placeholder="Phone Number" id="userphone" name="userphone">
+                <input type="text" placeholder="Subject" id="usersubject" name="usersubject">
             </div>
-            <textarea placeholder="Message" name="" cols="30" rows="10"></textarea>
+            <textarea placeholder="Message" name="usermsg" cols="30" rows="10" id="usermsg"  ></textarea>
             <input type="submit" class="btn" value="Send Message">
         </form>
     </div>

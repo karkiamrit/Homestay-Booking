@@ -8,7 +8,7 @@
  $pass=$_POST['pass'];
  $username=$_POST['username'];
 
- $s="select * from person where username='$username' ";
+ $s="select * from user where username='$username' ";
 $result=mysqli_query($con,$s);
 $num=mysqli_num_rows($result);
 if($num == 1)
@@ -16,7 +16,7 @@ if($num == 1)
     echo "You have previously used this username to sign up. Please, Log In Instead.";
 }
 else{
-    $reg="Insert into person(fname,lname,username,pass)values('$firstname','$lastname','$username','$pass')";
+    $reg="Insert into user(fname,lname,username,pass)values('$firstname','$lastname','$username','$pass')";
     mysqli_query($con,$reg);
     $_SESSION['new']="Registeration Successful";
    header('location:index.php');
