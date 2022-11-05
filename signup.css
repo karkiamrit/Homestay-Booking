@@ -15,6 +15,7 @@
   font-weight: 600;
   font-size: 1.79ch;
 }
+
 .sign {
   position: relative;
   top: 100px;
@@ -22,10 +23,10 @@
   height: 100%;
   margin: auto;
   text-align: center;
-  background-color: rgb(208, 208, 208);
+  background-color: transparent;
   border-radius: 5px;
   padding-top: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .formprop input {
   background-color: rgb(255, 236, 182);
@@ -53,13 +54,4 @@
   opacity: 10;
   margin-bottom: 4%;
   padding-bottom: 40px;
-}
-.home .video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }

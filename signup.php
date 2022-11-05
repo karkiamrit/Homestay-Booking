@@ -5,7 +5,7 @@
         </title>
         <link rel="stylesheet" href="signup.css">
         </head>
-    <body>
+    <body style="background-image:url('https://cdn.discordapp.com/attachments/989739723151007764/1038330493751533588/lethalamrit3_homestay_like_heaven_625b09dd-07d3-48a1-9687-730d1a065901.png');background-size:cover;">
     <section class="home" id="home">
     <div class="sign">
             <form method="post" action="registeration.php" class="form" id="signform">
@@ -31,12 +31,7 @@
                 </div>
             </form>
         </div>
-    <div class="controls">
-        <span class="vid-btn active" data-src="img/dance.mp4"></span>
-    </div>
-    <div class="video-container">
-        <video src="img/dance.mp4" id="video-slider" loop autoplay muted></video>
-    </div>
+   
 </section>
         
     </body>

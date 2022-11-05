@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>complete responsive hotel agency website design </title>
 
-    <link
-  rel="stylesheet"
-  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     <!-- font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -41,18 +38,22 @@ session_start();
         <div class="icons">
             <i class="fas fa-search" id="search-btn"></i>
             <input type="button" id="login-btn"/>
-            <label for="login-btn" ><i class="fas fa-user"></i><h1 class="fas fa-dot" style="color:white;font-family:Nunito;"> <?php 
+            <label for="login-btn" ><i class="fas fa-user"></i>
+            <h1 class="fas fa-dot" style="color:white;font-family:Nunito;">
+            <?php 
    
-   if(isset($_SESSION["username"]))
-   {
-    echo $_SESSION['username'];
-   }
-   else
-   {
-    echo 'Log In';
-   }
+            if(isset($_SESSION["username"]))
+            {
+                 echo $_SESSION['username'];
+            }
+            else
+            {
+                 echo 'Log In';
+            }
     
- ?></h1></label>
+            ?>
+            </h1>
+            </label>
         </div>
 
         <form action="" class="search-bar-container">
@@ -530,8 +531,20 @@ session_start();
                 <input type="date" id='return' name='return'>
             </div>
             <input type="submit" class="btn" value="Book now">
+            <?php 
+            if(isset($_SESSION['error'])){
+                    $error=$_SESSION['error'];
+                    echo "<h1 style='color:red;float:right;margin-top:5%'>" . $error . "</h1>";
+                    unset($_SESSION['error']);
+            }
+            else{
+                echo " ";
+            }
+            
+        ?>
         </form>
     </div>
+    
 </section>
 <!-- book section ends -->
 
@@ -560,6 +573,7 @@ session_start();
             <a href="#review">review</a>
             <a href="#contact">contact</a>
             <a href="#book">book</a>
+            <a href="check.php">status</a>
         </div>
         <div class="box">
             <h3>follow us</h3>
