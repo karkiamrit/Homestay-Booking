@@ -18,6 +18,7 @@ $regid=RandStr(10);
 if($username){
     $reg="Insert into travelbooking(Registerationno,NoofGuests,DepartureDate,DateofReturn,Location,TravelDuration,username)values('$regid',$noofguests,'$departure','$return','$location',DATEDIFF('$return','$departure'),'$username')";
     $_SESSION['error']=' ';
+    $_SESSION['regid']=$regid;
     mysqli_query($con,$reg);
     header('location:check.php');
 } 

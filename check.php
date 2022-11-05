@@ -9,6 +9,9 @@
        
         <div class="search__container">
         <?php
+            if(isset($_SESSION['regid'])){
+                $regid=$_SESSION['regid'];
+            }    
             if(isset($_SESSION['error']))
             {
                 if($_SESSION['error']==" ")
@@ -16,10 +19,15 @@
                     echo "<p style=' font-size: 22px;
                     font-weight: 900;
                     text-align: center;
-                    margin-top:30%;
                     color:ff8b88;'>"
                     ."You Have Booked your homestay with Nest. Enjoy your Travel"
                     ."</p>";
+                    
+                    echo "<p style=' font-size: 22px;
+                    font-weight: 900;
+                    text-align: center;
+                    color:ff8b88;'>"
+                    ."Your Booking Key is ".$regid."</p>";
                 }
             }
             else{
@@ -31,7 +39,7 @@
                 Enter your Username or Registeration ID to check your status
             </p>
             <form method="post" action="profile.php">
-                <input class="search__input" type="text" placeholder="Check Profile And Status">
+                <input class="search__input" type="text" id="userdetail" name="userdetail" placeholder="Check Profile And Status">
             </form>
         </div>
 
