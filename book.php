@@ -16,10 +16,12 @@ function RandStr($length, $encrypt = 10){
 }
 $regid=RandStr(10);
 if($username){
-    $reg="Insert into travelbooking(Registerationno,NoofGuests,DepartureDate,DateofReturn,Location,TravelDuration,username)values('$regid',$noofguests,'$departure','$return','$location',DATEDIFF('$return','$departure'),'$username')";
+    $reg="Insert into travelbooking(Registerationno,NoofGuests,DepartureDate,DateofReturn,Location,TravelDuration)values('$regid',$noofguests,'$departure','$return','$location',DATEDIFF('$return','$departure'))";
     $_SESSION['error']=' ';
     $_SESSION['regid']=$regid;
     mysqli_query($con,$reg);
+    $query="Insert into usertravel(Registerationno,username)values('$regid','$username')";
+    mysqli_query($con,$query);
     header('location:check.php');
 } 
 else{  

@@ -6,14 +6,17 @@
  $username=$_POST['username'];
 
  $s="select * from user where username='$username' and pass='$pass'";
+
 $result=mysqli_query($con,$s);
 $num=mysqli_num_rows($result);
+
 if($num == 1)
 {
     $_SESSION['username']=$username;
    header('location:index.php');
 }
 else{
-  header('registeration.php');
+  $_SESSION['msg']="***You have no username registered! Please Register Below***";
+   header('location:signup.php');
 }
 ?>

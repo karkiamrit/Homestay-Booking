@@ -8,6 +8,19 @@
     <body style="background-image:url('https://cdn.discordapp.com/attachments/989739723151007764/1038330493751533588/lethalamrit3_homestay_like_heaven_625b09dd-07d3-48a1-9687-730d1a065901.png');background-size:cover;">
     <section class="home" id="home">
     <div class="sign">
+            <?php
+                session_start();        
+                if(isset($_SESSION['msg']))
+                {
+                    echo "<h1 style='color:red;'>".$_SESSION['msg'].'</h1>';
+                    unset($_SESSION['msg']);
+                }   
+                if(isset($_SESSION['errormsg']))
+                {
+                    echo "<h1 style='color:red;'>".$_SESSION['errormsg'].'</h1>';
+                    unset($_SESSION['errormsg']);
+                }            
+            ?>
             <form method="post" action="registeration.php" class="form" id="signform">
                 <div class="formprop">
                     <label for="fname" ><span style="color:#ffa500;">F</span><span style="color:white;">irstname:</span></label>  

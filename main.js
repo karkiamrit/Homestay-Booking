@@ -8,6 +8,8 @@ let navbar = document.querySelector('.navbar');
 let videoBtn = document.querySelectorAll('.vid-btn');
 
 
+
+
 window.onscroll = () =>{
     searchBtn.classList.remove('fa-times');
     searchBar.classList.remove('active');
@@ -85,3 +87,6 @@ var swiper = new swiper(".brand-slider", {
         },
     },
 });
+
+
+
