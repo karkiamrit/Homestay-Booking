@@ -41,8 +41,6 @@
                     $_SESSION['Regno']=$row['Registerationno'];
                     
                     echo "</br>"."Booking/Registration No=$row[Registerationno]";
-                    echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form0`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form0" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
                     echo "</br>";
 
                     echo "</br>"."No of Guests=$row[NoofGuests]";
@@ -52,7 +50,17 @@
                     
                     echo "</br>"."Location=$row[Location]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form2`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form2" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
+                    echo '<form action="update.php" method="post" id="form2" style="display:none;">
+                    <select placeholder="Place name" >
+                        <option value="" disabled selected hidden>Place Name</option>
+                        <option value="Mustang">Mustang</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Lamjung">Lamjung</option>
+                        <option value="Illam">Illam</option>
+                        <option value="Tehrathum">Tehrathum</option>
+                        <option value="Chitwan">Chitwan</option>
+                    </select>
+                    <button type="submit" >Update</button> </form>';
                     echo "</br>";
                     
                     echo "</br>"."Departure Date=$row[DepartureDate]";
@@ -66,8 +74,7 @@
                     echo "</br>";
 
                     echo "</br>"."Travel Duration=$row[TravelDuration]";
-                    echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form5`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form5" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
+                    echo "</br>";
                     echo "</br>";
                     
                    
@@ -83,8 +90,6 @@
     {
         var form=document.getElementById(e);
         form.style.display='';
-        console.log(e);
-        
 
     }
 
