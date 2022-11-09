@@ -42,32 +42,32 @@
                     
                     echo "</br>"."Booking/Registration No=$row[Registerationno]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form0`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form0" style="display:none;"><input type="text" ><button type="submit" style="display:none;">Update</button> </form>';
+                    echo '<form action="update.php" method="post" id="form0" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
                     echo "</br>";
 
                     echo "</br>"."No of Guests=$row[NoofGuests]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form1`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form1" style="display:none;"><input type="text" style="display:none;"><button type="submit" style="display:none;">Update</button></form> ';
+                    echo '<form action="update.php" method="post" id="form1" style="display:none;"><input type="text"><button type="submit" ">Update</button></form> ';
                     echo "</br>";
                     
                     echo "</br>"."Location=$row[Location]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form2`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form2" style="display:none;"><input type="text" style="display:none;"><button type="submit" style="display:none;">Update</button> </form>';
+                    echo '<form action="update.php" method="post" id="form2" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
                     echo "</br>";
                     
                     echo "</br>"."Departure Date=$row[DepartureDate]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form3`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form3" style="display:none;"><input type="text" style="display:none;"><button type="submit" style="display:none;">Update</button> </form>';
+                    echo '<form action="update.php" method="post" id="form3" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
                     echo "</br>";
 
                     echo "</br>"."Date of Return=$row[DateofReturn]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form4`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form4" style="display:none;"><input type="text" style="display:none;"><button type="submit" style="display:none;">Update</button> </form>';
+                    echo '<form action="update.php" method="post" id="form4" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
                     echo "</br>";
 
                     echo "</br>"."Travel Duration=$row[TravelDuration]";
                     echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form5`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php" method="post" id="form5" style="display:none;"><input type="text" style="display:none;"><button type="submit" style="display:none;">Update</button> </form>';
+                    echo '<form action="update.php" method="post" id="form5" style="display:none;"><input type="text" ><button type="submit" >Update</button> </form>';
                     echo "</br>";
                     
                    
@@ -82,7 +82,7 @@
     showbuton=(e)=>
     {
         var form=document.getElementById(e);
-        form.style.display='block';
+        form.style.display='';
         console.log(e);
         
 
