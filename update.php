@@ -5,7 +5,8 @@
     $value=$_POST['value'];   
     $bookno=$_SESSION['Registerationno'];
     
-    if($_GET[id] == 'DepartureDate')
+    if(isset($_GET['pid'])){
+    if($_GET['pid'] == 'DepartureDate')
     {
         $dateofreturn="Select DateofReturn from travelbooking where Registerationno='$bookno'";
         $query_run=mysqli_query($con,$dateofreturn);         
@@ -21,7 +22,7 @@
         $reg="Update travelbooking Set DepartureDate='$value'";
         mysqli_query($con,$reg); 
     }
-    else if($_GET[id] == 'DateofReturn')
+    else if($_GET['pid'] == 'DateofReturn')
     {
         $departuredate="Select DepartureDate from travelbooking where Registerationno='$bookno'";
         $query_run=mysqli_query($con,$departuredate);         
@@ -39,9 +40,10 @@
     }
     
     else{
-        $query="Update travelbooking Set $_GET[id]='$value'";
+         $query="Update travelbooking Set $_GET[pid]='$value'";
         mysqli_query($con,$query); 
     }
       
     header('location:databasefetch.php');
+}
 ?>

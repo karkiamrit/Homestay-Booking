@@ -19,18 +19,67 @@
             background-color:orange;
         }
         .btn{
-            background-color:orange;
+            background-color:rgba(255, 165, 0,.4);
+            width: 100px; height:30px;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        body{
+            display:flex;
+            flex-direction:column;
+            background-color:#eee;
+            /* justify-content:center; */
+        }
+        .header{
+            /* background-color:#FFA500; */
+            width:fit-content;
+            margin:auto;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+            font-family:'Helvetica';
+        }
+        .userdetails{
+            width:300px;
+            background-color:#fff;
+            padding: 0px 0px 10px 0px;
+        }
+        .mainbody{
+            display:flex;
+            justify-content:space-around;
+            padding: 20px 30px;
+            flex-wrap:wrap;
+
+        }
+        .userdetails{
+            /* padding:20px 30px; */
+        }
+        .usertop{
+            background-color:#D7C9C8;
+            padding: 20px 30px;
+        }
+        .userdown{
+            background-color:#E4D7D5;
+            padding: 20px 40px;
         }
     </style>
     
 </head>
+<body>
+    <header class="header">Admin Panel</header>
+    <section class="mainbody">
 <?php        
         if( $query_run)
         {
             if(mysqli_num_rows($query_run)>0)
             {
+                $formid=0;
                 while($row=mysqli_fetch_assoc($query_run))
                 {
+                    echo "<div class='userdetails'>";
+                    echo "<div class='usertop'>";
                     echo "</br>"."Username=$row[username]"."</br>";
                     echo "</br>";
                     echo "</br>"."First Name=$row[fname]"."</br>";
@@ -40,19 +89,32 @@
                     
                     echo "</br>"."Booking/Registration No=$row[Registerationno]";
                     echo "</br>";
+                    echo "</div>";
 
                     $_SESSION['Registerationno']=$row['Registerationno'];
-                    
+
+                    echo "<div class='userdown'>";
+                    // echo "$formid";
                     echo "</br>"."No of Guests=$row[NoofGuests]";
-                    echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form1`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php?id=NoofGuests" method="post" id="form1" style="display:none;"><input type="text" name="value"><button type="submit" ">Update</button></form> ';
+                    $guestid="guest"."$formid";
+
+                    echo "<form method='post' id='formeditid'> 
+                        <input type='button' value='edit' onclick='showbutton($guestid)' class='btn' />
+                    </form>";
+                    
+                    echo "<form action='update.php?pid=NoofGuests' method='post' style='display:none;' id='$guestid'  >";
+                    
+                    echo "<input type='text' name='value'/><button type='submit' >Update</button></form> ";
                     echo "</br>";
                     
-                    
+                    $locationid="location"."$formid";
                     echo "</br>"."Location=$row[Location]";
-                    echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form2`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php?id=Location" method="post" id="form2" style="display:none;">
-                    <select placeholder="Place name" name="value">
+                    echo '<form method="post" id="formeditid" >';
+                    echo "<form method='post' id='formeditid'> 
+                        <input type='button' value='edit' class='btn' onclick='showbutton($locationid)' />
+                    </form>";
+                    echo "<form action='update.php?pid=Location' method='post' id='$locationid' style='display:none;'>";
+                    echo '<select placeholder="Place name" name="value">
                         <option value="" disabled selected hidden>Place Name</option>
                         <option value="Mustang">Mustang</option>
                         <option value="Pokhara">Pokhara</option>
@@ -64,16 +126,23 @@
                     <button type="submit" >Update</button> </form>';
                     echo "</br>";
                     
+                    $departureid="departure"."$formid";
                     
                     echo "</br>"."Departure Date=$row[DepartureDate]";
-                    echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form3`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php?id=DepartureDate" method="post" id="form3" style="display:none;"><input type="date" name="value" ><button type="submit" >Update</button> </form>';
+
+                   echo "<form method='post' id='formeditid'> 
+                        <input type='button' value='edit' class='btn' onclick='showbutton($departureid)' />
+                    </form>";
+                    echo "<form action='update.php?pid=DepartureDate' method='post' id='$departureid' style='display:none;'><input type='date' name='value' ><button type='submit' >Update</button> </form>";
                     echo "</br>";
 
-                   
+                   $returnid="return"."$formid";
                     echo "</br>"."Date of Return=$row[DateofReturn]";
-                    echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form4`)">'.'Edit'."</button>".'</form>';
-                    echo '<form action="update.php?id=DateofReturn" method="post" id="form4" style="display:none;"><input type="date" name="value"><button type="submit" >Update</button> </form>';
+                    // echo '<form method="post" id="formeditid" >'.'<button type="button" class="btn" id="btn" style=" width: 100px; height:30px" value="Edit"  onclick="showbuton(`form4`)">'.'Edit'."</button>".'</form>';
+                    echo "<form method='post' id='formeditid'> 
+                        <input type='button' value='edit' onclick='showbutton($returnid)' class='btn' />
+                    </form>";
+                    echo "<form action='update.php?pid=DateofReturn' method='post' id='$returnid' style='display:none;'><input type='date' name='value'><button type='submit' >Update</button> </form>";
                     echo "</br>";
 
                    
@@ -84,23 +153,30 @@
                    
                     echo '<form method="post" action="delete.php" >'.'<button type="submit" id="formdeleteid" style=" width: 200px; height:60px" value="Delete" >'.'Delete All Booking Details'."</button>".'</form>';
 
-                   
+                   echo "</div>";
+                   echo "</div>";
+                   $formid+=1;
                 }
             }
             mysqli_free_result($query_run);
         }
         
 ?>
+</section>
+</body>
 <script>
-    showbuton=(e)=>
+    showbutton=(d)=>
     {
-        var form=document.getElementById(e);
-        if(form.style.display='none')
-        {
-            form.style.display='block';
+        if(d.style.display=='none'){
+            d.style.display='block';
+        }else{
+            d.style.display='none';
         }
         
         
+
+        
     }
+    
 
 </script>

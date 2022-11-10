@@ -5,7 +5,7 @@
         </title>
         <!-- <link rel="stylesheet" href="signup.css"> -->
         </head>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
         <style>
             html,body{
                 width:100%;
@@ -92,7 +92,7 @@
             
                 <div class="signup-heading">Sign Up</div>
                 <form method="post" action="registeration.php"  id="signform" class="signup-form">
-=======
+<!-- ======= -->
     <body style="background-image:url('https://cdn.discordapp.com/attachments/989739723151007764/1038330493751533588/lethalamrit3_homestay_like_heaven_625b09dd-07d3-48a1-9687-730d1a065901.png');background-size:cover;">
     <section class="home" id="home">
     <div class="sign">
@@ -110,7 +110,7 @@
                 }            
             ?>
             <form method="post" action="registeration.php" class="form" id="signform">
->>>>>>> 74ca41fb126b8f8445c041b0bacd277dc3f3e00e
+<!-- >>>>>>> 74ca41fb126b8f8445c041b0bacd277dc3f3e00e -->
                 <div class="formprop">
                     
                     <input type="text" class="input-field" placeholder="Firstname" name="fname" id="fname" required/>
