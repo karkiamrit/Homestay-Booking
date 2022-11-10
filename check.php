@@ -19,14 +19,14 @@
                     echo "<p style=' font-size: 22px;
                     font-weight: 900;
                     text-align: center;
-                    color:ff8b88;'>"
+                    color:ffa500;'>"
                     ."You Have Booked your homestay with Nest. Enjoy your Travel"
                     ."</p>";
                     
                     echo "<p style=' font-size: 22px;
                     font-weight: 900;
                     text-align: center;
-                    color:ff8b88;'>"
+                    color:#ffa500;'>"
                     ."Your Booking Key is ".$regid."</p>";
                 }
             }
@@ -34,7 +34,7 @@
                 echo "";
             }    
             
-        ?>
+        ?>  
             <p class="search__title">
                 Enter your Username or Registeration ID to check your status
             </p>
