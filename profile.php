@@ -7,9 +7,11 @@
     if($db)
     {   
         $query="select * from user
+        Inner Join usertravel
+        on user.username=usertravel.username
         Inner Join travelbooking
-        on user.username=travelbooking.username
-        where Registerationno='$userdetail' or user.username='$userdetail' ";
+        on travelbooking.Registerationno=usertravel.Registerationno
+        where usertravel.Registerationno='$userdetail' ";
         $query_run=mysqli_query($con,$query);
         {
         if( $query_run)
@@ -24,8 +26,9 @@
                     echo "</br>"."Location=$row[Location]";
                 }
             }
+            mysqli_free_result($query_run);
         }
-        mysqli_free_result($query_run);
+       
         }  
     } 
 ?>

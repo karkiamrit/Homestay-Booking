@@ -36,7 +36,7 @@
             
         ?>  
             <p class="search__title">
-                Enter your Username or Registeration ID to check your status
+                Enter your Registeration ID to check your status
             </p>
             <form method="post" action="profile.php">
                 <input class="search__input" type="text" id="userdetail" name="userdetail" placeholder="Check Profile And Status">

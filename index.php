@@ -14,8 +14,9 @@
     <!-- font awesome cdn link -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 
-    <!-- custome css file link -->
+    <!-- customer css file link -->
     <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
@@ -68,10 +69,10 @@
 
 <div class="login-form-container">
     <i class="fas fa-times" id="form-close"></i>
-    <a href='index.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px;  " id='thau' >My Profile</a>
+    <a href='index.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px;  " id='profile' >My Profile</a>
     <a href='logout.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px; " id='acc' >Log out</a>
    
-    <form method='post' action="validation.php" id='frm'>
+    <form method='post' action="validation.php" id='usrfrm'>
          <h3>login</h3>
          <input type="text" name='username' id='username' class="box" placeholder="Username">
          <input type="password" name='pass' id='pass' class="box" placeholder="Enter your password">
@@ -516,21 +517,30 @@
         <form action="book.php" method='post'>
               <div class="inputBox">
                   <h3>where to</h3>
-                  <input type="text" placeholder="Place name" id='location' name='location'>
+                  <select placeholder="Place name" id='inputBox' name='location' >
+                        <option value="" disabled selected hidden>Place Name</option>
+                        <option value="Mustang">Mustang</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Lamjung">Lamjung</option>
+                        <option value="Illam">Illam</option>
+                        <option value="Tehrathum">Tehrathum</option>
+                        <option value="Chitwan">Chitwan</option>
+                  </select>
+                  <!-- <input type='text' placeholder="Place name" id='location' name='location'> -->
               </div>
-              <div class="inputBox">
+              <div class="inputBox" class='inputBox' >
                 <h3>how many</h3>
                 <input type="number" placeholder="Number of guests" id='noofguests' name='noofguests'>
             </div>
-            <div class="inputBox">
+            <div class="inputBox" class='inputBox' >
                 <h3>Arrivals</h3>
                 <input type="date" id='departure' name='departure'>
             </div>
-            <div class="inputBox">
+            <div class="inputBox" >
                 <h3>Leaving</h3>
                 <input type="date" id='return' name='return'>
             </div>
-            <input type="submit" class="btn" value="Book now">
+            <input type="submit" class="btn" value="Book now" id="bookBtn">
             <?php 
             if(isset($_SESSION['error'])){
                     $error=$_SESSION['error'];
@@ -605,11 +615,31 @@
     }
     ?>"!='')
     {
-        document.getElementById('frm').style.display='none';
-        document.getElementById('thau').style.display='block';
+        document.getElementById('usrfrm').style.display='none';
+        document.getElementById('profile').style.display='block';
         document.getElementById('acc').style.display='block';
         
     }
+
+
+
+    let inputBox=document.querySelector('#inputBox');
+    let btn=document.querySelector('#bookBtn');
+    btn.disabled = true; //setting button state to disabled
+
+    inputBox.addEventListener("change", stateHandle);
+    
+    function stateHandle() {
+    if (document.querySelector("#inputBox").value === "" ) {
+        btn.disabled = true; //button remains disabled
+    }    
+    else {
+        btn.disabled = false; //button is enabled
+    }
+    }
+
+
+
 </script>
 
 

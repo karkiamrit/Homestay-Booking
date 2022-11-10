@@ -7,13 +7,15 @@
  $lastname=$_POST['lname'];
  $pass=$_POST['pass'];
  $username=$_POST['username'];
+ $msg=$_SESSION['msg'];
 
  $s="select * from user where username='$username' ";
 $result=mysqli_query($con,$s);
 $num=mysqli_num_rows($result);
 if($num == 1)
 {
-    echo "You have previously used this username to sign up. Please, Log In Instead.";
+    $_SESSION['errormsg']= "You have previously used this username to sign up. Please, Log In Instead.";
+    header('location:signup.php');
 }
 else{
     $reg="Insert into user(fname,lname,username,pass)values('$firstname','$lastname','$username','$pass')";
