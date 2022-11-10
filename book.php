@@ -8,13 +8,7 @@
  $username=$_SESSION['username'];
  $return = date("Y-m-d", strtotime($_POST['return'])); 
 
-function RandStr($length, $encrypt = 10){
-    $reg_id = '';
-    for($i=0;$i<$encrypt;$i++){
-        $reg_id = base64_encode(md5(microtime(true)));}
-    return substr($reg_id, 0, $length);
-}
-$regid=RandStr(10);
+$regid=uniqid();
 if($username){
     $reg="Insert into travelbooking(Registerationno,NoofGuests,DepartureDate,DateofReturn,Location,TravelDuration)values('$regid',$noofguests,'$departure','$return','$location',DATEDIFF('$return','$departure'))";
     $_SESSION['error']=' ';

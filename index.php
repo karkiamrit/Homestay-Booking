@@ -14,8 +14,9 @@
     <!-- font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- custome css file link -->
+    <!-- customer css file link -->
     <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
@@ -623,18 +624,11 @@
 
 
     let inputBox=document.querySelector('#inputBox');
-    // let return=document.getElementById('#return');
-    // let depart=document.querySelector('#departure');
-    // let guests=document.querySelector('#noofguest');
     let btn=document.querySelector('#bookBtn');
     btn.disabled = true; //setting button state to disabled
 
     inputBox.addEventListener("change", stateHandle);
-    // return.addEventListener("change", stateHandle);
-    // depart.addEventListener("change", stateHandle);
-    // guests.addEventListener("change", stateHandle);
     
-
     function stateHandle() {
     if (document.querySelector("#inputBox").value === "" ) {
         btn.disabled = true; //button remains disabled
