@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="check.css">
     </head>
 
-    <body>
+    <body style="background-image:url('https://cdn.wallpapersafari.com/28/71/7KwMbp.jpg'); background-size:cointain;)">
        
         <div class="search__container">
         <?php

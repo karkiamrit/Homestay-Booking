@@ -5,11 +5,10 @@ html {
   width: 100%;
 }
 body {
-  width: 100%;
+  /* width: 100%; */
 
   background-color: #eee;
   font-family: "Raleway", sans-serif;
-  /* background-image: url(https://cdn.discordapp.com/attachments/989739723151007764/1038328791702970408/lethalamrit3_homestay_like_heaven_b4519279-9875-416d-8a72-2617d2e7a340.png); */
   display: flex;
 }
 
