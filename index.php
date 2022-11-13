@@ -485,10 +485,10 @@
             <img src="https://media.istockphoto.com/vectors/book-online-now-isolated-seal-book-online-now-orange-label-book-now-vector-id1179594007?b=1&k=20&m=1179594007&s=170667a&w=0&h=5khSZeUZU4cYlD1aqlltHOy3JISHT2pMIPo1P-2-TWQ=" alt="">
         </div>
 
-        <form action="book.php" method='post' id='bookForm'>
+        <form method='post' id='bookForm' action="book.php">
               <div class="inputBox">
                   <h3>where to</h3>
-                  <select placeholder="Place name" id='locationBox' name='location' >
+                  <select placeholder="Place name" id='locationBox' name='location' required >
                         <option value="" disabled selected hidden>Place Name</option>
                         <option value="Mustang">Mustang</option>
                         <option value="Pokhara">Pokhara</option>
@@ -501,15 +501,15 @@
               </div>
               <div class="inputBox" class='inputBox' >
                 <h3>how many</h3>
-                <input type="number" placeholder="Number of guests" id='noofguests' name='noofguests' min='0' max='20'>
+                <input type="number" placeholder="Number of guests" id='noofguests' name='noofguests' min='1' max='20' required>
             </div>
-            <div class="inputBox" class='inputBox' >
+            <div class="inputBox" class='inputBox'  >
                 <h3>Arrivals</h3>
-                <input type="date" id='departure' name='departure'/>
+                <input type="date" id='departure' onblur="checkDeparture()" name='departure'required/>
             </div>
             <div class="inputBox" >
                 <h3>Leaving</h3>
-                <input type="date" id='return' name='return'/>
+                <input type="date" id='return' onblur="checkArrival()" name='return' required/>
             </div>
             <span id='warningfield'></span>
             <input type="submit" class="btn" value="Book now" id="bookBtn" >
@@ -570,7 +570,80 @@
        <script src="main.js"></script>
 </body>
 
+<script>
+    function checkDeparture(){
+            const departure=document.getElementById('departure');
+            var date = new Date(departure.value);
+            var day = date.getDate();
+            var month = date.getMonth()+1;
+            var year = date.getFullYear();
+            var today = new Date();
+            var curDay= today.getDate();
+            var curMonth = today.getMonth()+1;
+            var curYear= today.getFullYear();
 
+            if (curYear > year){
+                alert("Cannot book in the past!");
+                return 0;
+            }
+            if (curMonth > month){
+                alert("Select an appropriate month!");
+                return 0;
+            } 
+            if (curDay > day){
+                alert("Select an appropriate day");
+                return 0;
+            }
+            return 1;
+                
+            console.log(day,month,year);
+            console.log(curDay,curMonth,curYear);
+    }
+    const formlast=document.getElementById("bookForm");
+    formlast.addEventListener("submit",formValidation);
+    function formValidation(e){
+                    e.preventDefault();
+                    if (checkDeparture() && checkArrival()){
+                        formlast.submit();
+                    }
+                    
+                    
+                    // const departureDate=new Date(departure);
+                    // const returnDate=new Date(return);
+                    console.log(departure);
+    }
+    function checkArrival(){
+        const departure=document.getElementById('departure');
+        var dateDept = new Date(departure.value);
+        const arrival = document.getElementById('return');
+        var dateArrival = new Date(arrival.value);
+
+        
+        var dayDept = dateDept.getDate();
+        var monthDept = dateDept.getMonth()+1;
+        var yearDept = dateDept.getFullYear();
+
+        var dayArrival= dateArrival.getDate();
+        var monthArrival = dateArrival.getMonth()+1;
+        var yearArrival= dateArrival.getFullYear();
+
+        if ( dayArrival <= dayDept ){
+            alert("Can't Stay for negative days");
+            return 0;
+        }
+        if ( monthArrival < monthDept ){
+            alert("Can't Chose negative Month");
+            return 0;
+        }
+        if (yearArrival < yearDept){
+            alert("Cant choose negative Year");
+            return 0;
+        }
+        return 1;
+        
+    }
+                    
+    </script>
 <script>
     if("<?php
     if(isset($_SESSION["username"]))
@@ -590,28 +663,9 @@
     }
 
 
-
-        document.getElementById("bookForm").onsubmit = formvalidation;
-        function formvalidation(){
-                    var warningfield = document.getElementById("warningfield").value;
-                    var departure = document.getElementById("departure").value;
-                    var return = document.getElementById("return").value;
-                    // const departureDate=new Date(departure);
-                    // const returnDate=new Date(return);
-                    console.log(departure);
-                    if(!departure && !return)
-                    {
-                        return false;
-                        alert('no date');
-                    }
-                    if(departureDate== returnDate){
-                        return true;  
-                    }
-                    else{
-                        alert("Return Date comes before departure date");
-                        return false;
-                    }
-
+        
+        
+        
 
 
 </script>
