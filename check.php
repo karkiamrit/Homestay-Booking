@@ -23,11 +23,12 @@
                     ."You Have Booked your homestay with Nest. Enjoy your Travel"
                     ."</p>";
                     
-                    echo "<p style=' font-size: 22px;
+                    echo "<p><span style=' font-size: 22px;
                     font-weight: 900;
                     text-align: center;
                     color:#ffa500;'>"
-                    ."Your Booking Key is ".$regid."</p>";
+                    ."Your Booking Key is </span> ";
+                    echo "<span stle= 'color:000000; font-size:25px; font-family:'Helvetica';>".$regid."</span> </p>";
                 }
             }
             else{
