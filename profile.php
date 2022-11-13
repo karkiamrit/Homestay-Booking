@@ -23,6 +23,8 @@
             display:flex;
             flex-direction:column;
             background-color:#eee;
+            
+            
         }
         section{
             display:flex;
@@ -37,22 +39,24 @@
             font-family:'Helvetica';
             flex-direction:column;
             justify-content:space-evenly;
+            margin-left:37%
 
         }
         </style>
 </head>
-<body>
+<body >
 <header class="header">
     <h1>
     Your Booking Details
     </h1>
 </header>
-<section>
+<section >
 <?php
     session_start();
     $con=mysqli_connect('localhost','root','');
     $db=mysqli_select_db($con,'project');
     $userdetail=$_POST['userdetail'];
+
     if($db)
     {   
         $query="select * from user
@@ -74,6 +78,9 @@
                     echo "<p>"."Firstname: $row[fname]"."</p>";
                     echo "<p>"."Lastname: $row[lname]"."</p>";
                     echo "<p>"."Location: $row[Location]"."</p>";
+                    echo "<p>"."Date of Departure: $row[DepartureDate]"."</p>";
+                    echo "<p>"."Date of Arrival: $row[DateofReturn]"."</p>";
+                    echo "<p>"."Travel Duration: $row[TravelDuration]"."</p>";
                     echo "</div>";
                 }
             }

@@ -9,18 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>complete responsive hotel agency website design </title>
 
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-    <!-- font awesome cdn link -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- customer css file link -->
+    
     <link rel="stylesheet" href="style.css">
   
 </head>
 <body>
 
-    <!-- header section starts -->
+   
     <header>
 
         <div id="menu-bar" class="fas fa-bars"></div>
@@ -63,13 +63,11 @@
         </form>
     </header>
 
-<!-- header section ends -->
 
-<!-- login form container -->
 
 <div class="login-form-container">
     <i class="fas fa-times" id="form-close"></i>
-    <a href='index.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px;  " id='profile' >My Profile</a>
+    <a href='check.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px;  " id='profile' >Status</a>
     <a href='logout.php' class='btn' style="display:none; width:200px; height:50px; text-align: center; border-color:white; margin-bottom:280px; " id='acc' >Log out</a>
    
     <form method='post' action="validation.php" id='usrfrm'>
@@ -88,8 +86,6 @@
 
 
 
-
-<!-- home section starts -->
 
 <section class="home" id="home">
     <div class="content">
@@ -112,12 +108,6 @@
 
 </section>
 
-
-<!-- home section ends -->
-
-
-
-<!-- packages section starts -->
 
 <section class="packages" id="packages">
     <h1 class="heading">
@@ -238,10 +228,6 @@
 </section>
 
 
-<!-- packages section ends -->
-
-<!-- services section starts -->
-
 <section class="services" id="services">
     <h1 class="heading">
         <span>s</span>
@@ -285,9 +271,6 @@
 </section>
 
 
-<!-- services section ends -->
-
-<!-- gallery section starts -->
 
 <section class="gallery" id="gallery">
     <h1 class="heading">
@@ -377,9 +360,6 @@
 </div>
 </section>
 
-<!-- gallery section ends -->
-
-<!-- review section start -->
 
 <section class="review" id="review">
     <h1 class="heading">
@@ -458,10 +438,6 @@
 </section>
 
 
-<!-- review section ends -->
-
-<!-- contact section starts -->
-
 <section class="contact" id="contact">
     <h1 class="heading">
         <span>c</span>
@@ -478,7 +454,7 @@
         </div>
         <form action="usermsg.php" method='post'>
             <div class="inputBox">
-                <input type="text" placeholder="Name" id="username" name="username">
+                <input type="text" placeholder="Name" id="contactusername" name="username">
                 <input type="email" placeholder="Email" id="usermail" name="usermail">
             </div>
             <div class="inputBox">
@@ -491,11 +467,6 @@
     </div>
 </section>
 
-<!-- contact section ends -->
-
-
-
-<!-- book section starts -->
 
 <section class="book" id="book">
     <h1 class="heading">
@@ -514,10 +485,10 @@
             <img src="https://media.istockphoto.com/vectors/book-online-now-isolated-seal-book-online-now-orange-label-book-now-vector-id1179594007?b=1&k=20&m=1179594007&s=170667a&w=0&h=5khSZeUZU4cYlD1aqlltHOy3JISHT2pMIPo1P-2-TWQ=" alt="">
         </div>
 
-        <form action="book.php" method='post'>
+        <form action="book.php" method='post' id='bookForm'>
               <div class="inputBox">
                   <h3>where to</h3>
-                  <select placeholder="Place name" id='inputBox' name='location' >
+                  <select placeholder="Place name" id='locationBox' name='location' >
                         <option value="" disabled selected hidden>Place Name</option>
                         <option value="Mustang">Mustang</option>
                         <option value="Pokhara">Pokhara</option>
@@ -530,17 +501,18 @@
               </div>
               <div class="inputBox" class='inputBox' >
                 <h3>how many</h3>
-                <input type="number" placeholder="Number of guests" id='noofguests' name='noofguests'>
+                <input type="number" placeholder="Number of guests" id='noofguests' name='noofguests' min='0' max='20'>
             </div>
             <div class="inputBox" class='inputBox' >
                 <h3>Arrivals</h3>
-                <input type="date" id='departure' name='departure'>
+                <input type="date" id='departure' name='departure'/>
             </div>
             <div class="inputBox" >
                 <h3>Leaving</h3>
-                <input type="date" id='return' name='return'>
+                <input type="date" id='return' name='return'/>
             </div>
-            <input type="submit" class="btn" value="Book now" id="bookBtn">
+            <span id='warningfield'></span>
+            <input type="submit" class="btn" value="Book now" id="bookBtn" >
             <?php 
             if(isset($_SESSION['error'])){
                     $error=$_SESSION['error'];
@@ -556,9 +528,6 @@
     </div>
     
 </section>
-<!-- book section ends -->
-
-<!-- footer section -->
 
 <section class="footer">
     <div class="box-container">
@@ -598,8 +567,7 @@
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <!-- custome js file link -->
-    <script src="main.js"></script>
+       <script src="main.js"></script>
 </body>
 
 
@@ -623,20 +591,26 @@
 
 
 
-    let inputBox=document.querySelector('#inputBox');
-    let btn=document.querySelector('#bookBtn');
-    btn.disabled = true; //setting button state to disabled
-
-    inputBox.addEventListener("change", stateHandle);
-    
-    function stateHandle() {
-    if (document.querySelector("#inputBox").value === "" ) {
-        btn.disabled = true; //button remains disabled
-    }    
-    else {
-        btn.disabled = false; //button is enabled
-    }
-    }
+        document.getElementById("bookForm").onsubmit = formvalidation;
+        function formvalidation(){
+                    var warningfield = document.getElementById("warningfield").value;
+                    var departure = document.getElementById("departure").value;
+                    var return = document.getElementById("return").value;
+                    // const departureDate=new Date(departure);
+                    // const returnDate=new Date(return);
+                    console.log(departure);
+                    if(!departure && !return)
+                    {
+                        return false;
+                        alert('no date');
+                    }
+                    if(departureDate== returnDate){
+                        return true;  
+                    }
+                    else{
+                        alert("Return Date comes before departure date");
+                        return false;
+                    }
 
 
 

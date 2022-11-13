@@ -110,7 +110,7 @@
                 }            
             ?>
             <form method="post" action="registeration.php" class="form" id="signform">
-<!-- >>>>>>> 74ca41fb126b8f8445c041b0bacd277dc3f3e00e -->
+
                 <div class="formprop">
                     
                     <input type="text" class="input-field" placeholder="Firstname" name="fname" id="fname" required/>
@@ -121,18 +121,36 @@
                     </div>
                 <div class="formprop">  
                     
-                    <input type="text" class="input-field" placeholder="User Name" name="username" id="username" value="" required>
+                    <input type="text" class="input-field" placeholder="User Name" name="username" id="username" minlength ='8' maxlength="25" value="" required>
                 </div>  
                 <div class="formprop">  
                     
-                    <input type="password" class="input-field" placeholder="Password" name="pass" value="" autocomplete="off" id="pass">
+                    <input type="password" class="input-field" placeholder="Password" name="pass" value="" autocomplete="off" minlength ='8' id="pass" maxlength="25" >
                     </div>
                 <div class="formprop formsubmit">  
-                    <input type="submit" class="input-submit" id="btn" value="Submit" style="background-color:--orange;" autocomplete="off">
+                    <input type="submit" class="input-submit" id="btn" value="Submit" style="background-color:--orange;" >
                     
                 </div>
             </form>
         </div>
+        <script>
+                document.getElementById("signform").onsubmit = checkalphabet;
+                function checkalphabet(){
+                    var firstname = document.getElementById("fname").value;
+                    var lastname = document.getElementById("lname").value;
+                   
+            
+                    if(firstname.match( /^[A-Za-z]+$/) && lastname.match( /^[A-Za-z]+$/)){
+                        return true;  
+                    }
+                    else{
+                        alert("Name not valid");
+                        return false;
+                    }
+                    
+                }
+                
+        </script>   
    
 </section>
         
