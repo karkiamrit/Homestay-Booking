@@ -75,7 +75,7 @@
         {
             if(mysqli_num_rows($query_run)>0)
             {
-                $formid=0;
+                $formid=1;
                 while($row=mysqli_fetch_assoc($query_run))
                 {
                     echo "<div class='userdetails'>";
@@ -91,18 +91,19 @@
                     echo "</br>";
                     echo "</div>";
 
-                    $_SESSION['Registerationno']=$row['Registerationno'];
+                    
 
                     echo "<div class='userdown'>";
                     // echo "$formid";
                     echo "</br>"."No of Guests=$row[NoofGuests]";
                     $guestid="guest"."$formid";
+                   
 
                     echo "<form method='post' id='formeditid'> 
                         <input type='button' value='edit' onclick='showbutton($guestid)' class='btn' />
                     </form>";
                     
-                    echo "<form action='update.php?pid=NoofGuests' method='post' style='display:none;' id='$guestid'  >";
+                    echo "<form action='update.php?pid=$guestid&regno=$row[Registerationno]' method='post' style='display:none;' id='$guestid'  >";
                     
                     echo "<input type='text' name='value'/><button type='submit' >Update</button></form> ";
                     echo "</br>";
@@ -113,7 +114,7 @@
                     echo "<form method='post' id='formeditid'> 
                         <input type='button' value='edit' class='btn' onclick='showbutton($locationid)' />
                     </form>";
-                    echo "<form action='update.php?pid=Location' method='post' id='$locationid' style='display:none;'>";
+                    echo "<form action='update.php?pid=$locationid&regno=$row[Registerationno]' method='post' id='$locationid' style='display:none;'>";
                     echo '<select placeholder="Place name" name="value">
                         <option value="" disabled selected hidden>Place Name</option>
                         <option value="Mustang">Mustang</option>
@@ -133,7 +134,7 @@
                    echo "<form method='post' id='formeditid'> 
                         <input type='button' value='edit' class='btn' onclick='showbutton($departureid)' />
                     </form>";
-                    echo "<form action='update.php?pid=DepartureDate' method='post' id='$departureid' style='display:none;'><input type='date' name='value' ><button type='submit' >Update</button> </form>";
+                    echo "<form action='update.php?pid=$departureid&regno=$row[Registerationno]' method='post' id='$departureid' style='display:none;'><input type='date' name='value' ><button type='submit' >Update</button> </form>";
                     echo "</br>";
 
                    $returnid="return"."$formid";
@@ -142,7 +143,7 @@
                     echo "<form method='post' id='formeditid'> 
                         <input type='button' value='edit' onclick='showbutton($returnid)' class='btn' />
                     </form>";
-                    echo "<form action='update.php?pid=DateofReturn' method='post' id='$returnid' style='display:none;'><input type='date' name='value'><button type='submit' >Update</button> </form>";
+                    echo "<form action='update.php?pid=$returnid&regno=$row[Registerationno]' method='post' id='$returnid' style='display:none;'><input type='date' name='value'><button type='submit' >Update</button> </form>";
                     echo "</br>";
 
                    
@@ -155,7 +156,7 @@
 
                    echo "</div>";
                    echo "</div>";
-                   $formid+=1;
+                   $formid=$formid+1;
                 }
             }
             mysqli_free_result($query_run);
